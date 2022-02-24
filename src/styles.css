@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.error-message {
+    font-size: 13px;
+}
+
+.default-height-error {
+    height: 14px;
+}
