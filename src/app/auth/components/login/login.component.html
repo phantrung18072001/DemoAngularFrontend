@@ -1,1 +1,49 @@
-<p>login works!</p>
+<div class="login" style="background-image: url('/assets/image/banner.jpg');">
+    <div class="form-box">
+        <div class="button-box">
+            <div id="btn"></div>
+            <a type="button" class="toggle-btn login-btn">Đăng nhập</a>
+            <a type="button" class="toggle-btn register-btn" routerLink="/register">Đăng ký</a>
+        </div>
+        <form id="login" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+            <div class="input-group-item">
+                <input 
+                    type="text"
+                    class="input-field"
+                    placeholder=" "
+                    name="username"
+                    formControlName="username"
+                >
+                <label class="label-field">Tên đăng nhập</label>
+            </div>
+            <div class="default-height-error" >
+                <p class="error-message text-danger"
+                    *ngIf="loginForm.get('username')?.errors && 
+                            loginForm.get('username')?.touched">
+                    Tài khoản không đúng, vui lòng nhập lại
+                </p>
+            </div>
+            <div class="input-group-item">
+                <input 
+                    type="password"
+                    class="input-field"
+                    placeholder=" "
+                    name="password"
+                    formControlName="password"
+                >
+                <label class="label-field">Mật khẩu</label>
+            </div>
+            <div class="default-height-error">
+                <p class="error-message text-danger"
+                    *ngIf="loginForm.get('password')?.errors &&
+                        loginForm.get('password')?.touched">
+                    Mật khẩu phải có ít nhất 8 ký tự
+                </p>
+            </div>
+            <div class="input-group-item group-link">
+                <a class="back-home" routerLink="/" >Về trang chủ</a>
+            </div>
+            <button type="submit" [disabled]="loginForm.invalid" class="submit-btn">Đăng nhập</button>
+        </form>
+    </div>
+</div>

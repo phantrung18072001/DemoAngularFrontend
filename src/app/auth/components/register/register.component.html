@@ -1,1 +1,121 @@
-<p>register works!</p>
+<div class="register" style="background-image: url('/assets/image/banner.jpg');">
+    <div class="form-box">
+        <div class="button-box">
+            <div id="btn"></div>
+            <a type="button" class="toggle-btn login-btn" routerLink="/login">Đăng nhập</a>
+            <a type="button" class="toggle-btn register-btn">Đăng ký</a>
+        </div>
+        <form id="register" [formGroup]="registerForm">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="input-group-item">
+                        <input 
+                            type="text"
+                            class="input-field"
+                            placeholder=" "
+                            name="username"
+                            formControlName="username"
+                        >
+                        <label class=" label-field">Tên đăng nhập</label>
+                    </div>
+                    <div class="default-height-error">
+                        <p class="error-message text-danger"
+                        *ngIf="registerForm.get('username')?.errors && 
+                            registerForm.get('username')?.touched">
+                            Tài khoản không được bỏ trống
+                        </p>
+                    </div>
+                    <div class="input-group-item">
+                        <input 
+                            type="password"
+                            class="input-field"
+                            placeholder=" "
+                            name="password1"
+                            formControlName="password1"
+                        >
+                        <label class="label-field">Mật khẩu</label>
+                    </div>
+                    <div class="default-height-error">
+                        <p class="error-message text-danger"
+                        *ngIf="registerForm.get('password1')?.errors && 
+                            registerForm.get('password1')?.touched">
+                            Mật khẩu phải nhiều hơn 8 ký tự
+                        </p>
+                    </div>
+                    <div class="input-group-item">
+                        <input 
+                            type="password"
+                            class="input-field"
+                            placeholder=" "
+                            name="password2"
+                            formControlName="password2"
+                        >                        
+                        <label class="label-field">Nhập lại mật khẩu</label>
+                    </div>
+                    <div class="default-height-error">
+                        <p class="error-message text-danger"
+                        *ngIf="(registerForm.get('password2')?.errors ||
+                                registerForm.hasError('passwordNotMatch')) && 
+                                registerForm.get('password2')?.touched">
+                            Mật khẩu không khớp
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group-item">
+                        <input 
+                            type="text"
+                            class="input-field" 
+                            placeholder=" " 
+                            name="name"
+                            formControlName="name"
+                        >
+                        <label class="label-field">Họ và Tên</label>
+                    </div>
+                    <div class="default-height-error">
+                        <p class="error-message text-danger"
+                        *ngIf="registerForm.get('name')?.errors && 
+                            registerForm.get('name')?.touched">
+                            Tên không được bỏ trống
+                        </p>
+                    </div>
+                    <div class="input-group-item">
+                        <input 
+                            type="text"
+                            class="input-field" 
+                            placeholder=" " 
+                            name="phone"
+                            formControlName="phone"
+                        >
+                        <label class=" label-field">Số điện thoại</label>
+                    </div>
+                    <div class="default-height-error">
+                        <p class="error-message text-danger"
+                        *ngIf="registerForm.get('phone')?.errors && 
+                            registerForm.get('phone')?.touched">
+                            Số điện thoại không hợp lệ
+                        </p>
+                    </div>
+                    <div class="input-group-item">
+                        <input
+                            type="email"
+                            class="input-field"
+                            placeholder=" "
+                            name="email"
+                            formControlName="email"
+                        >
+                        <label class=" label-field">Email</label>
+                    </div>
+                    <div class="default-height-error">
+                        <p class="error-message text-danger"
+                        *ngIf="registerForm.get('email')?.errors && 
+                            registerForm.get('email')?.touched">
+                            Email không hợp lệ, hãy thử email khác
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn mt-10" [disabled]="">Đăng ký</button>
+        </form>
+    </div>
+</div>
